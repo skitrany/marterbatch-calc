@@ -40,6 +40,49 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+<style>
+/* Styl dla wszystkich inputów tekstowych, liczbowych i selectboxów */
+input[type="text"],
+input[type="number"],
+textarea,
+.stSelectbox > div > div > div,
+.stTextInput > div > input,
+.stNumberInput > div > input {
+    border-radius: 9999px !important;
+    border: 2px solid #222 !important;
+    background-color: transparent !important;
+    padding: 8px 20px !important;
+    font-family: "sofia-pro", sans-serif !important;
+    font-weight: 400 !important;
+    box-shadow: none !important;
+}
+
+/* Styl dla selectboxów (opakowanie) */
+.stSelectbox > div {
+    border-radius: 9999px !important;
+    border: 2px solid #222 !important;
+    background-color: transparent !important;
+}
+
+/* Hover + focus efekt */
+input[type="text"]:hover,
+input[type="number"]:hover,
+.stTextInput > div > input:hover,
+.stNumberInput > div > input:hover,
+.stSelectbox > div:hover {
+    border-color: #000 !important;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+.stTextInput > div > input:focus,
+.stNumberInput > div > input:focus,
+.stSelectbox > div:focus-within {
+    border-color: #ff5c5c !important;
+    outline: none !important;
+}
+</style>
+
 st.title("🎨 Masterbatch Calculator")
 
 tabs = st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])
