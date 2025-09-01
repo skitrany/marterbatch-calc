@@ -38,50 +38,49 @@ st.markdown("""
     text-transform: uppercase;
   }
 </style>
-""", unsafe_allow_html=True)
 
 <style>
-/* Pola tekstowe i liczbowe */
-input[type="text"],
-input[type="number"],
-textarea,
-.stTextInput > div > input,
-.stNumberInput > div > input {
-    border-radius: 100px !important;
-    border: 2px solid #222 !important;
-    background-color: transparent !important;
-    padding: 10px 20px !important;
-    font-family: "sofia-pro", sans-serif !important;
-    font-weight: 400 !important;
-    box-shadow: none !important;
-}
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    .stTextInput > div > input,
+    .stNumberInput > div > input {
+        border-radius: 100px !important;
+        border: 2px solid #222 !important;
+        background-color: transparent !important;
+        padding: 10px 20px !important;
+        font-family: "sofia-pro", sans-serif !important;
+        font-weight: 400 !important;
+        box-shadow: none !important;
+    }
 
-/* Selectbox (opakowanie + dropdown) */
-.stSelectbox > div {
-    border-radius: 100px !important;
-    border: 2px solid #222 !important;
-    background-color: transparent !important;
-    padding: 10px 20px !important;
-}
+    .stSelectbox > div {
+        border-radius: 100px !important;
+        border: 2px solid #222 !important;
+        background-color: transparent !important;
+        padding: 10px 20px !important;
+    }
 
-/* Hover & focus efekty */
-input[type="text"]:hover,
-input[type="number"]:hover,
-.stTextInput > div > input:hover,
-.stNumberInput > div > input:hover,
-.stSelectbox > div:hover {
-    border-color: #000 !important;
-}
+    input[type="text"]:hover,
+    input[type="number"]:hover,
+    .stTextInput > div > input:hover,
+    .stNumberInput > div > input:hover,
+    .stSelectbox > div:hover {
+        border-color: #000 !important;
+    }
 
-input[type="text"]:focus,
-input[type="number"]:focus,
-.stTextInput > div > input:focus,
-.stNumberInput > div > input:focus,
-.stSelectbox > div:focus-within {
-    border-color: #ff5c5c !important;
-    outline: none !important;
-}
-</style>
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    .stTextInput > div > input:focus,
+    .stNumberInput > div > input:focus,
+    .stSelectbox > div:focus-within {
+        border-color: #ff5c5c !important;
+        outline: none !important;
+    }
+    </style>
+
+""", unsafe_allow_html=True)
+
 
 st.title("🎨 Masterbatch Calculator")
 
