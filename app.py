@@ -1,10 +1,11 @@
 import streamlit as st
 import json
 import os
+import pandas as pd
 
 RECIPE_FILE = "recipes.json"
 
-# Ensure the recipe file exists
+# --- Plik receptur ---
 def init_recipe_file():
     if not os.path.exists(RECIPE_FILE):
         with open(RECIPE_FILE, "w") as f:
@@ -18,14 +19,21 @@ def save_recipes(recipes):
     with open(RECIPE_FILE, "w") as f:
         json.dump(recipes, f, indent=2)
 
-# UI Starts Here
+# --- Inicjalizacja ---
 init_recipe_file()
 recipes = load_recipes()
 
+# --- Walidacja danych JSON ---
+for rname, composition in recipes.items():
+    for k, v in composition.items():
+        if not isinstance(v, (int, float)):
+            st.warning(f"⚠️ W recepturze '{rname}', składnik '{k}' ma nieprawidłową wartość: {v}")
+
+# --- UI ---
 st.title("🎨 Masterbatch Calculator")
 tabs = st.tabs(["📘 Oblicz recepturę", "➕ Dodaj recepturę", "✏️ Edytuj recepturę"])
 
-# TAB 1 – Calculate
+# --- TAB 1: Oblicz recepturę ---
 with tabs[0]:
     st.header("📘 Oblicz recepturę")
     recipe_name = st.selectbox("Wybierz recepturę", list(recipes.keys()))
@@ -33,11 +41,23 @@ with tabs[0]:
 
     if recipe_name:
         st.subheader("📋 Wynik")
-        for colorant, percent in recipes[recipe_name].items():
-            grams = (float(percent) / 100) * weight
-            st.write(f"{colorant}: {grams:.2f} g ({percent:.2f}%)")
+        composition = recipes[recipe_name]
 
-# TAB 2 – Add new recipe
+        total_percent = sum(composition.values())
+        if abs(total_percent - 100.0) > 0.1:
+            st.warning("⚠️ Udział procentowy składników nie sumuje się do 100%. Sprawdź recepturę.")
+
+        df = pd.DataFrame([
+            {
+                "Składnik": colorant,
+                "Udział [%]": percent,
+                "Waga [g]": round((percent / 100.0) * weight, 2)
+            }
+            for colorant, percent in composition.items()
+        ])
+        st.dataframe(df, use_container_width=True)
+
+# --- TAB 2: Dodaj nową recepturę ---
 with tabs[1]:
     st.header("➕ Dodaj recepturę")
     new_recipe_name = st.text_input("Nazwa nowej receptury")
@@ -55,15 +75,15 @@ with tabs[1]:
         total_pct = sum(new_ingredients.values())
         base_pct = 100.0 - total_pct
         if base_pct < 0:
-            st.error("Suma składników przekracza 100%! Zmniejsz wartości.")
+            st.error("❌ Suma składników przekracza 100%! Zmniejsz wartości.")
         else:
             new_ingredients["Base PLA"] = base_pct
             if st.button("💾 Zapisz recepturę"):
                 recipes[new_recipe_name] = new_ingredients
                 save_recipes(recipes)
-                st.success("Dodano nową recepturę!")
+                st.success(f"✅ Dodano nową recepturę: {new_recipe_name}")
 
-# TAB 3 – Edit recipe
+# --- TAB 3: Edytuj recepturę ---
 with tabs[2]:
     st.header("✏️ Edytuj recepturę")
     selected = st.selectbox("Wybierz recepturę do edycji", list(recipes.keys()), key="edit_recipe")
@@ -81,12 +101,12 @@ with tabs[2]:
         edited["Base PLA"] = base_val
 
         if total > 100:
-            st.error("Suma składników przekracza 100%")
+            st.error("❌ Suma składników przekracza 100%.")
         else:
             if st.button("💾 Zapisz zmiany"):
                 recipes[selected] = edited
                 save_recipes(recipes)
-                st.success("Zapisano zmiany w recepturze!")
+                st.success(f"✅ Zapisano zmiany w: {selected}")
 
         st.markdown("---")
         st.subheader("🗑️ Usuń recepturę")
@@ -97,4 +117,4 @@ with tabs[2]:
             if st.button("❌ Usuń recepturę"):
                 recipes.pop(selected, None)
                 save_recipes(recipes)
-                st.success("Receptura została usunięta")
+                st.success("🗑️ Receptura została usunięta.")
