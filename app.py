@@ -24,7 +24,7 @@ def calculate_base(ingredients):
 st.set_page_config(page_title="Masterbatch Calculator")
 st.title("🎨 Masterbatch Calculator")
 
-tabs = st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])
+tabs = st.tabs(["Kalkulator", "Dodaj recepturę"])
 
 # --- Kalkulator ---
 with tabs[0]:
