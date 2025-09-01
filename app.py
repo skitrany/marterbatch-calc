@@ -26,20 +26,20 @@ st.set_page_config(page_title="Masterbatch Calculator")
 st.markdown("""
 <link rel="stylesheet" href="https://use.typekit.net/eno7qox.css">
 <style>
-  /* Stylowanie głównych tytułów i nagłówków */
+  # Stylowanie głównych tytułów i nagłówków 
   .stApp h1, .stApp h2, .stApp h3, .stApp .stMarkdown h1 {
       font-family: "blow-up", sans-serif;
       font-weight: 400;
       font-style: normal;
   }
 
-  /* Stylowanie tekstu w aplikacji */
+  # Stylowanie tekstu w aplikacji 
   .stApp, .stApp p, .stApp label, .stApp span, .stApp input, .stApp textarea {
       font-family: "sofia-pro", sans-serif;
       font-weight: 400;
   }
 
-  /* Stylowanie przycisków */
+  # Stylowanie przycisków 
   .stButton>button {
       font-family: "sofia-pro", sans-serif;
       font-weight: 700;
