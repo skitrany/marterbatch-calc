@@ -24,9 +24,9 @@ def calculate_base(ingredients):
 st.set_page_config(page_title="Masterbatch Calculator")
 st.title("🎨 Masterbatch Calculator")
 
-tabs = st.tabs(["Kalkulator", "Dodaj recepturę"])
+tabs = st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])
 
-# --- Kalkulator ---
+# --- Zakładka 1: Kalkulator ---
 with tabs[0]:
     recipes = load_recipes()
     if not recipes:
@@ -44,7 +44,7 @@ with tabs[0]:
             for k, v in ingredients.items():
                 st.write(f"**{k}**: {round(v / 100 * weight, 2)} g")
 
-# --- Dodawanie receptury ---
+# --- Zakładka 2: Dodaj recepturę ---
 with tabs[1]:
     st.subheader("Nowa receptura")
     name = st.text_input("Nazwa receptury")
@@ -85,14 +85,8 @@ with tabs[1]:
                 st.session_state.pop(f"k{i}", None)
                 st.session_state.pop(f"v{i}", None)
 
-# --- Trzecia karta: Edytuj recepturę ---
-with tabs[0].container():
-    recipes = load_recipes()
-
-with tabs[1].container():
-    recipes = load_recipes()
-
-with st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])[2]:
+# --- Zakładka 3: Edytuj recepturę ---
+with tabs[2]:
     st.subheader("Edytuj istniejącą recepturę")
 
     recipes = load_recipes()
@@ -140,4 +134,3 @@ with st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])[2]:
                 recipes.pop(selected_recipe, None)
                 save_recipes(recipes)
                 st.success("Receptura została usunięta.")
-
