@@ -25,6 +25,8 @@ st.set_page_config(page_title="Masterbatch Calculator")
 st.markdown("""
     <link rel="stylesheet" href="https://use.typekit.net/eno7qox.css">
     <style>
+    #MainMenu, footer {visibility: hidden;}
+
     html, body, [class*="st-"] {
         font-family: "sofia-pro", sans-serif;
         font-weight: 400;
