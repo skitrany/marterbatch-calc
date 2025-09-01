@@ -48,9 +48,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("To jest tytuł")
-st.subheader("To jest podtytuł")
-st.write("To jest zwykły tekst")
 
 st.title("🎨 Masterbatch Calculator")
 
