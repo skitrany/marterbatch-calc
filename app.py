@@ -24,7 +24,7 @@ def calculate_base(ingredients):
 st.set_page_config(page_title="Masterbatch Calculator")
 st.title("🎨 Masterbatch Calculator")
 
-tabs = st.tabs(["Kalkulator", "Dodaj recepturę"])
+tabs = st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])
 
 # --- Kalkulator ---
 with tabs[0]:
@@ -84,3 +84,60 @@ with tabs[1]:
             for i in range(20):
                 st.session_state.pop(f"k{i}", None)
                 st.session_state.pop(f"v{i}", None)
+
+# --- Trzecia karta: Edytuj recepturę ---
+with tabs[0].container():
+    recipes = load_recipes()
+
+with tabs[1].container():
+    recipes = load_recipes()
+
+with st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])[2]:
+    st.subheader("Edytuj istniejącą recepturę")
+
+    recipes = load_recipes()
+    if not recipes:
+        st.warning("Brak receptur do edycji.")
+    else:
+        selected_recipe = st.selectbox("Wybierz recepturę do edycji", list(recipes.keys()))
+        recipe_data = recipes[selected_recipe]
+        base_name = recipe_data.get("base", "Base")
+        ingredients = recipe_data.get("ingredients", {})
+
+        st.markdown("#### Składniki kolorowe")
+        new_ingredients = {}
+        for k, v in ingredients.items():
+            col1, col2 = st.columns([2, 1])
+            with col1:
+                new_k = st.text_input(f"Nazwa dla '{k}'", value=k, key=f"edit_k_{k}")
+            with col2:
+                new_v = st.number_input(f"% dla '{k}'", min_value=0.0, max_value=100.0, value=v, step=0.1, key=f"edit_v_{k}")
+            new_ingredients[new_k] = new_v
+
+        new_base_name = st.text_input("Nazwa bazy", value=base_name, key="edit_base")
+        base_pct = calculate_base(new_ingredients)
+
+        st.markdown(f"**Baza `{new_base_name}` zajmie: {base_pct:.2f}%**")
+
+        if base_pct < 0:
+            st.error("Suma składników przekracza 100%!")
+        else:
+            if st.button("💾 Zapisz zmiany w recepturze"):
+                recipes[selected_recipe] = {
+                    "base": new_base_name,
+                    "ingredients": new_ingredients
+                }
+                save_recipes(recipes)
+                st.success("Zapisano zmiany!")
+
+        st.markdown("---")
+        st.markdown("### 🗑️ Usuń recepturę")
+        confirm_1 = st.checkbox("Potwierdzam chęć usunięcia receptury")
+        confirm_2 = st.checkbox("Na pewno?")
+
+        if confirm_1 and confirm_2:
+            if st.button("❌ Usuń recepturę"):
+                recipes.pop(selected_recipe, None)
+                save_recipes(recipes)
+                st.success("Receptura została usunięta.")
+
