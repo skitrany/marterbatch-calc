@@ -40,22 +40,25 @@ with tabs[0]:
     weight = st.number_input("Podaj wagę końcową (g)", min_value=0.0, value=1000.0)
 
     if recipe_name:
-        st.subheader("📋 Wynik")
-        composition = recipes[recipe_name]
+    st.subheader("📋 Wynik")
+    composition = recipes[recipe_name]
 
-        total_percent = sum(composition.values())
+    try:
+        total_percent = sum(float(v) for v in composition.values())
         if abs(total_percent - 100.0) > 0.1:
             st.warning("⚠️ Udział procentowy składników nie sumuje się do 100%. Sprawdź recepturę.")
 
         df = pd.DataFrame([
             {
                 "Składnik": colorant,
-                "Udział [%]": percent,
-                "Waga [g]": round((percent / 100.0) * weight, 2)
+                "Udział [%]": float(percent),
+                "Waga [g]": round((float(percent) / 100.0) * weight, 2)
             }
             for colorant, percent in composition.items()
         ])
         st.dataframe(df, use_container_width=True)
+    except Exception as e:
+        st.error(f"❌ Błąd podczas przeliczania receptury: {e}")
 
 # --- TAB 2: Dodaj nową recepturę ---
 with tabs[1]:
