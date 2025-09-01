@@ -41,30 +41,30 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 <style>
-/* Styl dla wszystkich inputów tekstowych, liczbowych i selectboxów */
+/* Pola tekstowe i liczbowe */
 input[type="text"],
 input[type="number"],
 textarea,
-.stSelectbox > div > div > div,
 .stTextInput > div > input,
 .stNumberInput > div > input {
-    border-radius: 9999px !important;
+    border-radius: 100px !important;
     border: 2px solid #222 !important;
     background-color: transparent !important;
-    padding: 8px 20px !important;
+    padding: 10px 20px !important;
     font-family: "sofia-pro", sans-serif !important;
     font-weight: 400 !important;
     box-shadow: none !important;
 }
 
-/* Styl dla selectboxów (opakowanie) */
+/* Selectbox (opakowanie + dropdown) */
 .stSelectbox > div {
-    border-radius: 9999px !important;
+    border-radius: 100px !important;
     border: 2px solid #222 !important;
     background-color: transparent !important;
+    padding: 10px 20px !important;
 }
 
-/* Hover + focus efekt */
+/* Hover & focus efekty */
 input[type="text"]:hover,
 input[type="number"]:hover,
 .stTextInput > div > input:hover,
