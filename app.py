@@ -39,19 +39,11 @@ st.markdown("""
       font-weight: 400;
   }
 
-  /* Stylowanie przycisków */
-  [data-testid="baseButton-secondary"], 
-  [data-testid="baseButton-primary"] {
-    font-family: "sofia-pro", sans-serif !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
+
 }
   }
 </style>
 """, unsafe_allow_html=True)
-
-if st.button("Testowy przycisk"):
-    st.success("Działa!")
 
 st.title("🎨 Masterbatch Calculator")
 
