@@ -50,6 +50,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+if st.button("Testowy przycisk"):
+    st.success("Działa!")
+
 st.title("🎨 Masterbatch Calculator")
 
 tabs = st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])
