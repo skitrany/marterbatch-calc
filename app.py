@@ -40,10 +40,12 @@ st.markdown("""
   }
 
   /* Stylowanie przycisków */
-  .stButton>button {
-      font-family: "sofia-pro", sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
+  [data-testid="baseButton-secondary"], 
+  [data-testid="baseButton-primary"] {
+    font-family: "sofia-pro", sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
   }
 </style>
 """, unsafe_allow_html=True)
