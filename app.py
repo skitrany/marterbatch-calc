@@ -40,8 +40,8 @@ with tabs[0]:
     weight = st.number_input("Podaj wagę końcową (g)", min_value=0.0, value=1000.0)
 
     if recipe_name:
-    st.subheader("📋 Wynik")
-    composition = recipes[recipe_name]
+        st.subheader("📋 Wynik")
+        composition = recipes[recipe_name]
 
     try:
         total_percent = sum(float(v) for v in composition.values())
