@@ -34,7 +34,7 @@ with tabs[0]:
     if recipe_name:
         st.subheader("📋 Wynik")
         for colorant, percent in recipes[recipe_name].items():
-            grams = (percent / 100) * weight
+            grams = (float(percent) / 100) * weight
             st.write(f"{colorant}: {grams:.2f} g ({percent:.2f}%)")
 
 # TAB 2 – Add new recipe
