@@ -22,6 +22,45 @@ def calculate_base(ingredients):
 
 # --- UI ---
 st.set_page_config(page_title="Masterbatch Calculator")
+st.markdown("""
+    <link rel="stylesheet" href="https://use.typekit.net/eno7qox.css">
+    <style>
+    html, body, [class*="st-"] {
+        font-family: "sofia-pro", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    h1, h2, h3, .stTitle, .stHeader {
+        font-family: "blow-up", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    strong, b {
+        font-weight: 700;
+    }
+
+    .stButton>button {
+        font-family: "sofia-pro", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .stTextInput>div>input,
+    .stNumberInput>div>input,
+    .stSelectbox>div>div>div {
+        font-family: "sofia-pro", sans-serif;
+        font-weight: 400;
+    }
+    </style>
+""", unsafe_allow_html=True)
 st.title("🎨 Masterbatch Calculator")
 
 tabs = st.tabs(["Kalkulator", "Dodaj recepturę", "Edytuj recepturę"])
