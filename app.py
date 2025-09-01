@@ -26,39 +26,31 @@ st.set_page_config(page_title="Masterbatch Calculator")
 st.markdown("""
 <link rel="stylesheet" href="https://use.typekit.net/eno7qox.css">
 <style>
-  h1, h2, h3, .stTitle, .stHeader {
+  /* Stylowanie głównych tytułów i nagłówków */
+  .stApp h1, .stApp h2, .stApp h3, .stApp .stMarkdown h1 {
       font-family: "blow-up", sans-serif;
       font-weight: 400;
       font-style: normal;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
   }
 
-  body, p, label, .stMarkdown, .stText, .stRadio, .stSelectbox>div>div>div {
+  /* Stylowanie tekstu w aplikacji */
+  .stApp, .stApp p, .stApp label, .stApp span, .stApp input, .stApp textarea {
       font-family: "sofia-pro", sans-serif;
       font-weight: 400;
   }
 
-  strong, b {
-      font-weight: 700;
-  }
-
-  .stTextInput>div>input,
-  .stNumberInput>div>input,
-  .stSelectbox>div>div>div {
-      font-family: "sofia-pro", sans-serif;
-      font-weight: 400;
-  }
-
+  /* Stylowanie przycisków */
   .stButton>button {
       font-family: "sofia-pro", sans-serif;
       font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.5px;
       text-transform: uppercase;
   }
 </style>
 """, unsafe_allow_html=True)
+
+st.title("To jest tytuł")
+st.subheader("To jest podtytuł")
+st.write("To jest zwykły tekst")
 
 st.title("🎨 Masterbatch Calculator")
 
