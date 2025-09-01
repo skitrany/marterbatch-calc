@@ -38,9 +38,10 @@ st.markdown("""
       font-family: "sofia-pro", sans-serif;
       font-weight: 400;
   }
-
-
-}
+  .stButton>button {
+    font-family: "sofia-pro", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
   }
 </style>
 """, unsafe_allow_html=True)
