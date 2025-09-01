@@ -22,10 +22,10 @@ def calculate_base(ingredients):
 
 # --- UI ---
 st.set_page_config(page_title="Masterbatch Calculator")
+
 st.markdown("""
-    <link rel="stylesheet" href="https://use.typekit.net/eno7qox.css">
     <style>
-    #MainMenu, footer {visibility: hidden;}
+    @import url('https://use.typekit.net/eno7qox.css');
 
     html, body, [class*="st-"] {
         font-family: "sofia-pro", sans-serif;
@@ -33,6 +33,7 @@ st.markdown("""
         font-style: normal;
         font-size: 16px;
         line-height: 1.6;
+        color: #222;
     }
 
     h1, h2, h3, .stTitle, .stHeader {
@@ -61,6 +62,8 @@ st.markdown("""
         font-family: "sofia-pro", sans-serif;
         font-weight: 400;
     }
+
+    footer, #MainMenu {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
 st.title("🎨 Masterbatch Calculator")
