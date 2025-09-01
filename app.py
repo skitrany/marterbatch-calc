@@ -25,47 +25,40 @@ st.set_page_config(page_title="Masterbatch Calculator")
 
 st.markdown("""
 <link rel="stylesheet" href="https://use.typekit.net/eno7qox.css">
-
 <style>
-/* Nagłówki: blow-up */
-h1, h2, h3, .stTitle, .stHeader {
-    font-family: "blow-up", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
+  h1, h2, h3, .stTitle, .stHeader {
+      font-family: "blow-up", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+  }
 
-/* Tekst główny */
-body, p, label, .stMarkdown, .stText, .stRadio, .stSelectbox>div>div>div {
-    font-family: "sofia-pro", sans-serif;
-    font-weight: 400;
-}
+  body, p, label, .stMarkdown, .stText, .stRadio, .stSelectbox>div>div>div {
+      font-family: "sofia-pro", sans-serif;
+      font-weight: 400;
+  }
 
-/* Bold */
-strong, b {
-    font-weight: 700;
-}
+  strong, b {
+      font-weight: 700;
+  }
 
-/* Inputy i selecty */
-.stTextInput>div>input,
-.stNumberInput>div>input,
-.stSelectbox>div>div>div {
-    font-family: "sofia-pro", sans-serif;
-    font-weight: 400;
-}
+  .stTextInput>div>input,
+  .stNumberInput>div>input,
+  .stSelectbox>div>div>div {
+      font-family: "sofia-pro", sans-serif;
+      font-weight: 400;
+  }
 
-/* Przyciski */
-.stButton>button {
-    font-family: "sofia-pro", sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
+  .stButton>button {
+      font-family: "sofia-pro", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+  }
 </style>
 """, unsafe_allow_html=True)
-st.markdown('<h1 style="font-family: blow-up;">Test Blow-Up</h1>', unsafe_allow_html=True)
 
 st.title("🎨 Masterbatch Calculator")
 
