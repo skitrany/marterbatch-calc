@@ -65,6 +65,7 @@ strong, b {
 }
 </style>
 """, unsafe_allow_html=True)
+st.markdown('<h1 style="font-family: blow-up;">Test Blow-Up</h1>', unsafe_allow_html=True)
 
 st.title("🎨 Masterbatch Calculator")
 
