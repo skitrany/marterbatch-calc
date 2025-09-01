@@ -1,15 +1,9 @@
 {
-  "PLA + Blue": {
-    "Base PLA": 97.5,
-    "Blue MB": 2.5
-  },
-  "PLA + Yellow + Black": {
-    "Base PLA": 95.5,
-    "Yellow MB": 3.5,
-    "Black MB": 1.0
-  },
-  "PETG + Red": {
-    "PETG": 96.0,
-    "Red MB": 4.0
+  "niebiesko-zielony": {
+    "base": "Base PLA",
+    "ingredients": {
+      "rutalia (blue)": 1.5,
+      "rutalia (green)": 1.8
+    }
   }
 }
