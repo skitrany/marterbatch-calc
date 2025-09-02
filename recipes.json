@@ -1,9 +1,38 @@
 {
-  "niebiesko-zielony": {
+  "żółty": {
     "base": "Base PLA",
     "ingredients": {
-      "rutalia (blue)": 1.5,
-      "rutalia (green)": 1.8
+      "rutalia (yellow)": 0.44,
+      "rutalia (white)": 0.67
+    }
+  },
+  "różowy": {
+    "base": "Base PLA",
+    "ingredients": {
+      "rutalia (red)": 0.76,
+      "rutalia (white)": 1.44
+    }
+  },
+  "niebieski": {
+    "base": "Base PLA",
+    "ingredients": {
+      "rutalia (blue)": 0.80,
+      "rutalia (white)": 1.60
+    }
+  },
+  "zielony": {
+    "base": "Base PLA",
+    "ingredients": {
+      "rutalia (green)": 0.70,
+      "rutalia (white)": 1.30
+    }
+  },
+  "pomarańczowy": {
+    "base": "Base PLA",
+    "ingredients": {
+      "rutalia (white)": 0.34,
+      "rutalia (red)": 0.34,
+      "rutalia (yellow)": 0.68
     }
   }
 }
