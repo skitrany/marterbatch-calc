@@ -101,6 +101,7 @@ with tabs[1]:
             }
             save_recipes(recipes)
             st.success(f"Zapisano recepturę '{name}'!")
+            git_commit_and_push()
             st.session_state.ingredient_count = 1
             for i in range(20):
                 st.session_state.pop(f"k{i}", None)
@@ -144,6 +145,7 @@ with tabs[2]:
                 }
                 save_recipes(recipes)
                 st.success("Zapisano zmiany!")
+                git_commit_and_push()
 
         st.markdown("---")
         st.markdown("### 🗑️ Usuń recepturę")
@@ -155,3 +157,4 @@ with tabs[2]:
                 recipes.pop(selected_recipe, None)
                 save_recipes(recipes)
                 st.success("Receptura została usunięta.")
+                git_commit_and_push()
