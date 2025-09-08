@@ -35,4 +35,11 @@
       "rutalia (yellow)": 0.68
     }
   }
+  "czerwony jasny": {
+    "base": "Base PLA",
+    "ingredients": {
+      "rutalia (yellow)": 0.5,
+      "rutalia (red)": 0.5,
+    }
+  }
 }
